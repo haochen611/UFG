@@ -161,47 +161,21 @@
 
   
 <!-- End teaser video -->
-<br><br>
 <h2 class="title is-3 has-text-centered">Functional Object Grasping with HnuHand</h2>
 <section class="hero is-light is-small">
     <div class="hero-body">
         <div class="container">
 
             <div id="gif-carousel" class="carousel results-carousel">
-                <!-- 每个 item 放一列两个 GIF -->
                 <div class="carousel-columns">
-                    <div class="carousel-column">
-                        <img src="./gif/0.gif" />
-                        <img src="./gif/1.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/2.gif" />
-                        <img src="./gif/3.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/4.gif" />
-                        <img src="./gif/5.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/6.gif" />
-                        <img src="./gif/7.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/8.gif" />
-                        <img src="./gif/9.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/10.gif" />
-                        <img src="./gif/11.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/12.gif" />
-                        <img src="./gif/13.gif" />
-                    </div>
-                    <div class="carousel-column">
-                        <img src="./gif/14.gif" />
-                        <img src="./gif/15.gif" />
-                    </div>
+                    <div class="carousel-column"><img src="./gif/0.gif" /><img src="./gif/1.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/2.gif" /><img src="./gif/3.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/4.gif" /><img src="./gif/5.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/6.gif" /><img src="./gif/7.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/8.gif" /><img src="./gif/9.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/10.gif" /><img src="./gif/11.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/12.gif" /><img src="./gif/13.gif" /></div>
+                    <div class="carousel-column"><img src="./gif/14.gif" /><img src="./gif/15.gif" /></div>
                 </div>
             </div>
 
@@ -213,32 +187,40 @@
 </section>
 
 <style>
-/* 轮播整体 */
 #gif-carousel {
     overflow: hidden;
+    position: relative;
 }
 
-/* 列容器 */
 .carousel-columns {
     display: flex;
     transition: transform 0.4s ease;
-    gap: 4px; /* 列与列之间的水平间距 */
+    gap: 10px; /* 列间距 */
 }
 
-
-/* 每列包含两个 GIF */
 .carousel-column {
     flex: 0 0 25%; /* 每页显示 4 列 */
     display: flex;
     flex-direction: column;
-    gap: 5px; /* 两个 GIF 的垂直间距 */
+    gap: 5px; /* 列内 GIF 间距 */
 }
 
-/* 图片填满列宽 */
 .carousel-column img {
     width: 100%;
     display: block;
 }
+
+.carousel-nav-left, .carousel-nav-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    color: #333;
+}
+.carousel-nav-left { left: 0; }
+.carousel-nav-right { right: 0; }
 </style>
 
 <script>
@@ -246,65 +228,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const columnsContainer = document.querySelector('.carousel-columns');
     const columns = columnsContainer.children;
     const totalColumns = columns.length;
-    let index = 0; // 当前滚动位置
-    const visibleColumns = 4; // 一页显示列数
+    const visibleColumns = 4;
+    let index = 0;
 
-    // 获取每列实际宽度 + 列间距
-    const columnStyle = getComputedStyle(columns[0]);
+    // 每列滚动距离 = 列宽 + gap
     const columnWidth = columns[0].offsetWidth;
-    const gap = parseInt(columnStyle.marginRight) || 0; // 或者用 container gap
+    const containerStyle = getComputedStyle(columnsContainer);
+    const gap = parseInt(containerStyle.gap) || 0;
     const scrollStep = columnWidth + gap;
 
     const scrollLeft = () => {
-        if (index > 0) {
+        if(index > 0){
             index--;
             columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
         }
     };
-
     const scrollRight = () => {
-        if (index < totalColumns - visibleColumns) {
+        if(index < totalColumns - visibleColumns){
             index++;
             columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
         }
     };
 
-    // 绑定左右按钮
-    document.querySelector('.carousel-nav-left').addEventListener('click', scrollLeft);
-    document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
-});
-
-
-
-    // 添加左右按钮
+    // 创建左右箭头
     const navLeft = document.createElement('div');
     navLeft.className = 'carousel-nav-left';
     navLeft.innerHTML = '<i class="fas fa-chevron-left"></i>';
-    navLeft.style.position = 'absolute';
-    navLeft.style.left = '0';
-    navLeft.style.top = '50%';
-    navLeft.style.transform = 'translateY(-50%)';
-    navLeft.style.cursor = 'pointer';
-    navLeft.style.fontSize = '24px';
     navLeft.addEventListener('click', scrollLeft);
 
     const navRight = document.createElement('div');
     navRight.className = 'carousel-nav-right';
     navRight.innerHTML = '<i class="fas fa-chevron-right"></i>';
-    navRight.style.position = 'absolute';
-    navRight.style.right = '0';
-    navRight.style.top = '50%';
-    navRight.style.transform = 'translateY(-50%)';
-    navRight.style.cursor = 'pointer';
-    navRight.style.fontSize = '24px';
     navRight.addEventListener('click', scrollRight);
 
     const carousel = document.getElementById('gif-carousel');
-    carousel.style.position = 'relative';
     carousel.appendChild(navLeft);
     carousel.appendChild(navRight);
 });
 </script>
+
 
 
 
