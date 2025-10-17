@@ -159,52 +159,82 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<div id="results-carousel" class="carousel results-carousel">
+<h2 class="title is-3" style="text-align: center; margin-bottom: 20px;">Seen Partition</h2>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container" style="text-align: center;">
+      <div id="results-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-  <style>
-    /* 每个 item 宽度固定，保证一页能显示 8 个 */
-    .item {
-      width: 12%; /* 8 个 item 每页，大约 12% + margin */
-      margin: 0 0.5%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        <style>
+          /* 每个 item 占四分之一宽度，保证一行 4 列 */
+          .item {
+            width: 23%; /* 留一点间隙 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* 行间距 */
+          }
 
-    .item img, .item video {
-      width: 40%;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 5px;
-    }
-  </style>
+          .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+          }
 
-  <div class="item"><img src="./gif/0.gif"><img src="./gif/1.gif"></div>
-  <div class="item"><img src="./gif/2.gif"><img src="./gif/3.gif"></div>
-  <div class="item"><img src="./gif/4.gif"><img src="./gif/5.gif"></div>
-  <div class="item"><img src="./gif/6.gif"><img src="./gif/7.gif"></div>
-  <div class="item"><img src="./gif/8.gif"><img src="./gif/9.gif"></div>
-  <div class="item"><img src="./gif/10.gif"><img src="./gif/11.gif"></div>
-  <div class="item"><img src="./gif/12.gif"><img src="./gif/13.gif"></div>
-  <div class="item"><img src="./gif/14.gif"><img src="./gif/15.gif"></div>
-</div>
+          .item img + img {
+            margin-top: 5px;
+          }
+        </style>
 
-<script>
-  $(document).ready(function(){
-    $('#results-carousel').slick({
-      slidesToShow: 8,  // 每页显示 8 个
-      slidesToScroll: 2,
-      infinite: false,
-      arrows: true,
-      responsive: [
-        { breakpoint: 1200, settings: { slidesToShow: 6 } },
-        { breakpoint: 992,  settings: { slidesToShow: 4 } },
-        { breakpoint: 768,  settings: { slidesToShow: 2 } },
-        { breakpoint: 480,  settings: { slidesToShow: 1 } }
-      ]
-    });
-  });
-</script>
+        <div class="item">
+          <img src="./gif/0.gif" alt="bag animation">
+          <img src="./gif/1.gif" alt="bag thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/2.gif" alt="bicycle animation">
+          <img src="./gif/3.gif" alt="bicycle thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/4.gif" alt="chair animation">
+          <img src="./gif/5.gif" alt="chair thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/6.gif" alt="mug animation">
+          <img src="./gif/7.gif" alt="mug thumbnail">
+        </div>
+
+        <!-- 如果有更多 item，也会自动换行显示 -->
+        <div class="item">
+          <img src="./static/gifs/glasses_wear_seen.gif" alt="glasses animation">
+          <img src="./static/gifs/glasses_wear_seen.gif" alt="glasses thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/dishwasher_open_seen.gif" alt="dishwasher animation">
+          <img src="./static/gifs/dishwasher_open_seen.gif" alt="dishwasher thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/display_display_seen.gif" alt="display animation">
+          <img src="./static/gifs/display_display_seen.gif" alt="display thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/extra.gif" alt="extra animation">
+          <img src="./gif/extra.gif" alt="extra thumbnail">
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 15px;">
+        The training and test sets share the same objects and affordances.
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
