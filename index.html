@@ -175,11 +175,7 @@
                     <div class="carousel-column"><img src="./gif/10.gif" /><img src="./gif/11.gif" /></div>
                     <div class="carousel-column"><img src="./gif/12.gif" /><img src="./gif/13.gif" /></div>
                     <div class="carousel-column"><img src="./gif/14.gif" /><img src="./gif/15.gif" /></div>
-
-    </div>
-</div>
-
-                  </div>
+                </div>
                 <!-- 左右按钮 -->
                 <div class="carousel-nav-left"><i class="fas fa-chevron-left"></i></div>
                 <div class="carousel-nav-right"><i class="fas fa-chevron-right"></i></div>
@@ -195,7 +191,7 @@
 <style>
 #gif-carousel { overflow: hidden; position: relative; }
 .carousel-columns { display: flex; transition: transform 0.4s ease; gap: 10px; }
-.carousel-column { flex: 0 0 23.5%; display: flex; flex-direction: column; gap: 5px; }
+.carousel-column { flex: 0 0 24%; display: flex; flex-direction: column; gap: 5px; }
 .carousel-column img { width: 100%; display: block; }
 .carousel-nav-left, .carousel-nav-right {
     position: absolute; top: 50%; transform: translateY(-50%);
@@ -235,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
 });
 </script>
+
 
 
 
