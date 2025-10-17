@@ -159,82 +159,66 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<h2 class="title is-3" style="text-align: center; margin-bottom: 20px;">Seen Partition</h2>
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container" style="text-align: center;">
-      <div id="results-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-
-        <style>
-          /* 每个 item 占四分之一宽度，保证一行 4 列 */
-          .item {
-            width: 23%; /* 留一点间隙 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px; /* 行间距 */
-          }
-
-          .item img {
-            width: 120%;
-            height: auto;
-            border-radius: 10px;
-          }
-
-          .item img + img {
-            margin-top: 5px;
-          }
-        </style>
-
-        <div class="item">
-          <img src="./gif/0.gif" alt="bag animation">
-          <img src="./gif/1.gif" alt="bag thumbnail">
+    <br><br>
+    <h2 class="title is-3">Seen Partition</h2>
+    <section class="hero is-light is-small">
+        <div class="hero-body">
+            <div class="container">
+                <div id="results-carousel" class="carousel results-carousel">
+                    <div class="item item-bag">
+                        <video poster="" id="bag" autoplay controls muted loop playsinline height="100%">
+                            <source src="./static/videos/bag_lift_seen.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <img src="./static/images/bag_lift_seen.jpg" height="20%" />
+                    </div>
+                    <div class="item item-bicycle">
+                      <img src="./static/images/bicycle_ride_seen.jpg" height="20%" />
+                      <video poster="" id="bicycle" autoplay controls muted loop playsinline height="100%">
+                          <source src="./static/videos/bicycle_ride_seen.mp4"
+                                  type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-chair">
+                      <video poster="" id="chair" autoplay controls muted loop playsinline height="100%">
+                          <source src="./static/videos/chair_sit_seen.mp4"
+                                  type="video/mp4">
+                      </video>
+                      <img src="./static/images/chair_sit_seen.jpg" height="20%" />
+                    </div>
+                    <div class="item item-mug">
+                      <img src="./static/images/mug_grasp_seen.jpg" height="20%" />
+                      <video poster="" id="mug" autoplay controls muted loop playsinline height="100%">
+                          <source src="./static/videos/mug_grasp_seen.mp4"
+                                  type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-glasses">
+                      <video poster="" id="glasses" autoplay controls muted loop playsinline height="100%">
+                          <source src="./static/videos/glasses_wear_seen.mp4"
+                                  type="video/mp4">
+                      </video>
+                      <img src="./static/images/glasses_wear_seen.jpg" height="20%" />
+                    </div>
+                    <div class="item item-dishwasher">
+                      <img src="./static/images/dishwasher_open_seen.jpg" height="20%" />
+                      <video poster="" id="dishwasher" autoplay controls muted loop playsinline height="100%">
+                          <source src="./static/videos/dishwasher_open_seen.mp4"
+                                  type="video/mp4">
+                      </video>
+                    </div>
+                    <div class="item item-display">
+                        <video poster="" id="display" autoplay controls muted loop playsinline height="100%">
+                            <source src="./static/videos/display_display_seen.mp4"
+                                    type="video/mp4">
+                        </video>
+                        <img src="./static/images/display_display_seen.jpg" height="20%" />
+                    </div>
+                </div>
+                <div style="text-align: center;">The training and test sets share the same objects and affordances.</div>
+            </div>
         </div>
-
-        <div class="item">
-          <img src="./gif/2.gif" alt="bicycle animation">
-          <img src="./gif/3.gif" alt="bicycle thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/4.gif" alt="chair animation">
-          <img src="./gif/5.gif" alt="chair thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/6.gif" alt="mug animation">
-          <img src="./gif/7.gif" alt="mug thumbnail">
-        </div>
-
-        <!-- 如果有更多 item，也会自动换行显示 -->
-        <div class="item">
-          <img src="./static/gifs/glasses_wear_seen.gif" alt="glasses animation">
-          <img src="./static/gifs/glasses_wear_seen.gif" alt="glasses thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./static/gifs/dishwasher_open_seen.gif" alt="dishwasher animation">
-          <img src="./static/gifs/dishwasher_open_seen.gif" alt="dishwasher thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./static/gifs/display_display_seen.gif" alt="display animation">
-          <img src="./static/gifs/display_display_seen.gif" alt="display thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/extra.gif" alt="extra animation">
-          <img src="./gif/extra.gif" alt="extra thumbnail">
-        </div>
-
-      </div>
-
-      <div style="text-align: center; margin-top: 15px;">
-        The training and test sets share the same objects and affordances.
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
 
 
