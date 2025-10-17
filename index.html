@@ -163,94 +163,72 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
+      <!-- Swiper 主体 -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
 
-        <style>
-          /* carousel item 布局 */
-          .item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 10px;
-          }
+          <!-- 每列作为一个 slide -->
+          <div class="swiper-slide">
+            <img src="./gif/0.gif" alt="0" style="width:120px; border-radius:10px;"><br>
+            <img src="./gif/1.gif" alt="1" style="width:120px; border-radius:10px;">
+          </div>
 
-          /* GIF 大小 */
-          .item img {
-            width: 120px; /* 控制GIF宽度 */
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 5px;
-          }
-        </style>
+          <div class="swiper-slide">
+            <img src="./gif/2.gif" alt="2" style="width:120px; border-radius:10px;"><br>
+            <img src="./gif/3.gif" alt="3" style="width:120px; border-radius:10px;">
+          </div>
 
-        <!-- 示例 item -->
-        <div class="item">
-          <img src="./gif/0.gif" alt="bag animation">
-          <img src="./gif/1.gif" alt="bag thumbnail">
+          <div class="swiper-slide">
+            <img src="./gif/4.gif" alt="4" style="width:120px; border-radius:10px;"><br>
+            <img src="./gif/5.gif" alt="5" style="width:120px; border-radius:10px;">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="./gif/6.gif" alt="6" style="width:120px; border-radius:10px;"><br>
+            <img src="./gif/7.gif" alt="7" style="width:120px; border-radius:10px;">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="./gif/8.gif" alt="8" style="width:120px; border-radius:10px;"><br>
+            <img src="./gif/9.gif" alt="9" style="width:120px; border-radius:10px;">
+          </div>
+
+          <div class="swiper-slide">
+            <img src="./gif/10.gif" alt="10" style="width:120px; border-radius:10px;"><br>
+            <img src="./gif/11.gif" alt="11" style="width:120px; border-radius:10px;">
+          </div>
+
         </div>
 
-        <div class="item">
-          <img src="./gif/2.gif" alt="bicycle animation">
-          <img src="./gif/3.gif" alt="bicycle thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/4.gif" alt="chair animation">
-          <img src="./gif/5.gif" alt="chair thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/6.gif" alt="mug animation">
-          <img src="./gif/7.gif" alt="mug thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/8.gif" alt="glasses animation">
-          <img src="./gif/9.gif" alt="glasses thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/10.gif" alt="dishwasher animation">
-          <img src="./gif/11.gif" alt="dishwasher thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/12.gif" alt="display animation">
-          <img src="./gif/13.gif" alt="display thumbnail">
-        </div>
-
-        <div class="item">
-          <img src="./gif/14.gif" alt="extra animation">
-          <img src="./gif/15.gif" alt="extra thumbnail">
-        </div>
-
+        <!-- 箭头 -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
       </div>
 
-      <div style="text-align: center; margin-top: 15px;">
-        The training and test sets share the same objects and affordances.
-      </div>
     </div>
   </div>
 </section>
 
-<!-- 初始化 Slick Carousel -->
+<!-- Swiper JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 <script>
-  $(document).ready(function(){
-    $('#results-carousel').slick({
-      slidesToShow: 4,       // 每行 4 个
-      slidesToScroll: 2,     // 每次滚动 2 个
-      rows: 2,               // 每页 2 行 => 4x2 = 8 个
-      infinite: false,
-      arrows: true,
-      dots: false,
-      responsive: [
-        { breakpoint: 1200, settings: { slidesToShow: 3, slidesToScroll: 2, rows: 2 } },
-        { breakpoint: 992,  settings: { slidesToShow: 2, slidesToScroll: 1, rows: 2 } },
-        { breakpoint: 768,  settings: { slidesToShow: 1, slidesToScroll: 1, rows: 2 } }
-      ]
-    });
+  const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 4,  // 每行显示 4 列
+    slidesPerGroup: 1, // 每次向右滑动 1 列
+    spaceBetween: 20,  // 列间距
+    grid: {
+      rows: 2,          // 每页 2 行
+      fill: 'row'
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
 </script>
+
 
 
 
