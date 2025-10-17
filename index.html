@@ -244,22 +244,36 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const columnsContainer = document.querySelector('.carousel-columns');
-    const totalColumns = columnsContainer.children.length;
+    const columns = columnsContainer.children;
+    const totalColumns = columns.length;
     let index = 0; // 当前滚动位置
-    
+    const visibleColumns = 4; // 一页显示列数
+
+    // 获取每列实际宽度 + 列间距
+    const columnStyle = getComputedStyle(columns[0]);
+    const columnWidth = columns[0].offsetWidth;
+    const gap = parseInt(columnStyle.marginRight) || 0; // 或者用 container gap
+    const scrollStep = columnWidth + gap;
+
     const scrollLeft = () => {
         if (index > 0) {
             index--;
-            columnsContainer.style.transform = `translateX(-${index * 25}%)`; // 每次滚动一列
+            columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
         }
     };
-    
+
     const scrollRight = () => {
-        if (index < totalColumns - 4) { // 最多滚动到倒数第4列，保持一页显示4列
+        if (index < totalColumns - visibleColumns) {
             index++;
-            columnsContainer.style.transform = `translateX(-${index * 25}%)`; // 每次滚动一列
+            columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
         }
     };
+
+    // 绑定左右按钮
+    document.querySelector('.carousel-nav-left').addEventListener('click', scrollLeft);
+    document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
+});
+
 
 
     // 添加左右按钮
