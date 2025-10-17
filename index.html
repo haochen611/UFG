@@ -159,68 +159,133 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<div id="results-carousel-wrapper" style="display: inline-block; transform: scale(0.6); transform-origin: top center;">
-  <div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
-    <div class="carousel-container">
-      <div class="carousel-item is-active">
-        <div class="carousel-columns">
-          <div class="carousel-column"><img src="./gif/0.gif"><img src="./gif/1.gif"></div>
-          <div class="carousel-column"><img src="./gif/2.gif"><img src="./gif/3.gif"></div>
-          <div class="carousel-column"><img src="./gif/4.gif"><img src="./gif/5.gif"></div>
-          <div class="carousel-column"><img src="./gif/6.gif"><img src="./gif/7.gif"></div>
-          <div class="carousel-column"><img src="./gif/8.gif"><img src="./gif/9.gif"></div>
-          <div class="carousel-column"><img src="./gif/10.gif"><img src="./gif/11.gif"></div>
-          <div class="carousel-column"><img src="./gif/12.gif"><img src="./gif/13.gif"></div>
-          <div class="carousel-column"><img src="./gif/14.gif"><img src="./gif/15.gif"></div>
-        </div>
-      </div>
-    </div>
+<br><br>
+<h2 class="title is-3">Seen Partition (GIF)</h2>
+<section class="hero is-light is-small">
+    <div class="hero-body">
+        <div class="container">
+            <div id="gif-carousel" class="carousel results-carousel">
+                <!-- 每个 item 放一列两个 GIF -->
+                <div class="carousel-columns">
+                    <div class="carousel-column">
+                        <img src="./gif/0.gif" />
+                        <img src="./gif/1.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/2.gif" />
+                        <img src="./gif/3.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/4.gif" />
+                        <img src="./gif/5.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/6.gif" />
+                        <img src="./gif/7.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/8.gif" />
+                        <img src="./gif/9.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/10.gif" />
+                        <img src="./gif/11.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/12.gif" />
+                        <img src="./gif/13.gif" />
+                    </div>
+                    <div class="carousel-column">
+                        <img src="./gif/14.gif" />
+                        <img src="./gif/15.gif" />
+                    </div>
+                </div>
+            </div>
 
-    <div class="carousel-navigation is-centered">
-      <div class="carousel-nav-left"><i class="fas fa-chevron-left"></i></div>
-      <div class="carousel-nav-right"><i class="fas fa-chevron-right"></i></div>
+            <div style="text-align: center; margin-top: 10px;">
+                16 个 GIF 展示不同对象或操作
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</section>
 
 <style>
-.carousel-item { overflow: hidden; }
-.carousel-columns { display: flex; transition: transform 0.4s ease; }
-.carousel-column { flex: 0 0 25%; display: flex; flex-direction: column; gap: 5px; }
-.carousel-column img { width: 100%; display: block; }
+/* 轮播整体 */
+#gif-carousel {
+    overflow: hidden;
+}
+
+/* 列容器 */
+.carousel-columns {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+/* 每列包含两个 GIF */
+.carousel-column {
+    flex: 0 0 25%; /* 每页显示 4 列 */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* 两个 GIF 的垂直间距 */
+}
+
+/* 图片填满列宽 */
+.carousel-column img {
+    width: 100%;
+    display: block;
+}
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  bulmaCarousel.attach('#results-carousel', {
-    slidesToScroll: 1,
-    slidesToShow: 1,
-    infinite: false,
-    autoplay: false
-  });
+    const columnsContainer = document.querySelector('.carousel-columns');
+    const totalColumns = columnsContainer.children.length;
+    let index = 0;
 
-  const columnsContainer = document.querySelector('.carousel-columns');
-  const totalColumns = columnsContainer.children.length;
-  let index = 0;
+    // 左右滚动函数
+    const scrollLeft = () => {
+        if(index > 0){
+            index--;
+            columnsContainer.style.transform = `translateX(-${index * 25}%)`;
+        }
+    };
+    const scrollRight = () => {
+        if(index < totalColumns - 4){
+            index++;
+            columnsContainer.style.transform = `translateX(-${index * 25}%)`;
+        }
+    };
 
-  const scrollLeft = () => {
-    if(index > 0) {
-      index--;
-      columnsContainer.style.transform = `translateX(-${index * 25}%)`;
-    }
-  };
+    // 添加左右按钮
+    const navLeft = document.createElement('div');
+    navLeft.className = 'carousel-nav-left';
+    navLeft.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    navLeft.style.position = 'absolute';
+    navLeft.style.left = '0';
+    navLeft.style.top = '50%';
+    navLeft.style.transform = 'translateY(-50%)';
+    navLeft.style.cursor = 'pointer';
+    navLeft.style.fontSize = '24px';
+    navLeft.addEventListener('click', scrollLeft);
 
-  const scrollRight = () => {
-    if(index < totalColumns - 4) {
-      index++;
-      columnsContainer.style.transform = `translateX(-${index * 25}%)`;
-    }
-  };
+    const navRight = document.createElement('div');
+    navRight.className = 'carousel-nav-right';
+    navRight.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    navRight.style.position = 'absolute';
+    navRight.style.right = '0';
+    navRight.style.top = '50%';
+    navRight.style.transform = 'translateY(-50%)';
+    navRight.style.cursor = 'pointer';
+    navRight.style.fontSize = '24px';
+    navRight.addEventListener('click', scrollRight);
 
-  document.querySelector('.carousel-nav-left').addEventListener('click', scrollLeft);
-  document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
+    const carousel = document.getElementById('gif-carousel');
+    carousel.style.position = 'relative';
+    carousel.appendChild(navLeft);
+    carousel.appendChild(navRight);
 });
 </script>
+
 
 
 
