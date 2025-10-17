@@ -159,112 +159,58 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<h2 class="title is-3" style="text-align: center; margin-bottom: 20px;">Seen Partition</h2>
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
-        <div class='carousel-container'>
+<div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
+  <div class='carousel-container'>
 
-          <!-- 每列作为一个 item，2 行 GIF -->
-          <div class="carousel-item is-active">
-            <div class="columns is-multiline is-mobile">
-              <div class="column is-half">
-                <img src="./gif/0.gif" alt="bag animation" style="width:100%; border-radius:10px;">
-              </div>
-              <div class="column is-half">
-                <img src="./gif/1.gif" alt="bag thumbnail" style="width:100%; border-radius:10px;">
-              </div>
-            </div>
-          </div>
+    <!-- 第一页 -->
+    <div class="carousel-item is-active">
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter"><img src="./gif/0.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/1.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/2.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/3.gif" style="width:100%"></div>
 
-          <div class="carousel-item">
-            <div class="columns is-multiline is-mobile">
-              <div class="column is-half">
-                <img src="./gif/2.gif" alt="bicycle animation" style="width:100%; border-radius:10px;">
-              </div>
-              <div class="column is-half">
-                <img src="./gif/3.gif" alt="bicycle thumbnail" style="width:100%; border-radius:10px;">
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="columns is-multiline is-mobile">
-              <div class="column is-half">
-                <img src="./gif/4.gif" alt="chair animation" style="width:100%; border-radius:10px;">
-              </div>
-              <div class="column is-half">
-                <img src="./gif/5.gif" alt="chair thumbnail" style="width:100%; border-radius:10px;">
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="columns is-multiline is-mobile">
-              <div class="column is-half">
-                <img src="./gif/6.gif" alt="mug animation" style="width:100%; border-radius:10px;">
-              </div>
-              <div class="column is-half">
-                <img src="./gif/7.gif" alt="mug thumbnail" style="width:100%; border-radius:10px;">
-              </div>
-            </div>
-          </div>
-
-          <!-- 继续添加更多 item -->
-          <div class="carousel-item">
-            <div class="columns is-multiline is-mobile">
-              <div class="column is-half">
-                <img src="./gif/8.gif" alt="glasses animation" style="width:100%; border-radius:10px;">
-              </div>
-              <div class="column is-half">
-                <img src="./gif/9.gif" alt="glasses thumbnail" style="width:100%; border-radius:10px;">
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="columns is-multiline is-mobile">
-              <div class="column is-half">
-                <img src="./gif/10.gif" alt="dishwasher animation" style="width:100%; border-radius:10px;">
-              </div>
-              <div class="column is-half">
-                <img src="./gif/11.gif" alt="dishwasher thumbnail" style="width:100%; border-radius:10px;">
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- 左右箭头 -->
-        <div class="carousel-navigation is-centered">
-          <div class="carousel-nav-left">
-            <i class="fas fa-chevron-left" aria-hidden="true"></i>
-          </div>
-          <div class="carousel-nav-right">
-            <i class="fas fa-chevron-right" aria-hidden="true"></i>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="text-align: center; margin-top: 15px;">
-        The training and test sets share the same objects and affordances.
+        <div class="column is-one-quarter"><img src="./gif/4.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/5.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/6.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/7.gif" style="width:100%"></div>
       </div>
     </div>
+
+    <!-- 第二页 -->
+    <div class="carousel-item">
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter"><img src="./gif/1.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/2.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/3.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/4.gif" style="width:100%"></div>
+
+        <div class="column is-one-quarter"><img src="./gif/5.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/6.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/7.gif" style="width:100%"></div>
+        <div class="column is-one-quarter"><img src="./gif/8.gif" style="width:100%"></div>
+      </div>
+    </div>
+
   </div>
-</section>
+
+  <div class="carousel-navigation is-centered">
+    <div class="carousel-nav-left"><i class="fas fa-chevron-left"></i></div>
+    <div class="carousel-nav-right"><i class="fas fa-chevron-right"></i></div>
+  </div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     bulmaCarousel.attach('#results-carousel', {
-      slidesToScroll: 1,      // 每次滑动 1 列
-      slidesToShow: 4,        // 每页显示 4 列
-      infinite: false,        // 不循环
+      slidesToScroll: 1,  // 每次滑动一页
+      slidesToShow: 1,    // 每页显示 1 个 carousel-item（即整页）
+      infinite: false,
       autoplay: false
     });
   });
 </script>
+
 
 
 
