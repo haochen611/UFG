@@ -201,17 +201,24 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const columnsContainer = document.querySelector('.carousel-columns');
-    let currentX = 0; // 当前 transform 位移
-    const scrollWidth = 10; // 每次滚动的固定宽度（px）
-    
+    const columns = document.querySelectorAll('.carousel-column');
+    const parentWidth = columnsContainer.parentElement.offsetWidth;
+
+    // 每列宽度 + gap
+    const columnStyle = getComputedStyle(columns[0]);
+    const columnWidth = columns[0].offsetWidth;
+    const gap = parseInt(columnStyle.marginRight) || 10;
+    const scrollWidth = columnWidth + gap; // 每次滚动一列
+
+    let currentX = 0;
+
     const scrollLeft = () => {
-        currentX = Math.max(currentX - scrollWidth, 0); // 不滚出左边
+        currentX = Math.max(currentX - scrollWidth, 0);
         columnsContainer.style.transform = `translateX(-${currentX}px)`;
     };
 
     const scrollRight = () => {
-        // 计算最大滚动距离
-        const maxScroll = columnsContainer.scrollWidth - columnsContainer.parentElement.offsetWidth;
+        const maxScroll = columnsContainer.scrollWidth - parentWidth;
         currentX = Math.min(currentX + scrollWidth, maxScroll);
         columnsContainer.style.transform = `translateX(-${currentX}px)`;
     };
