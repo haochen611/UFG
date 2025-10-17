@@ -159,62 +159,35 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false" style="max-width: 800px; margin: 0 auto;">
-  <div class="carousel-container">
-
-    <div class="carousel-item is-active">
-      <div class="carousel-columns">
-        <!-- 每列两张 GIF -->
-        <div class="carousel-column"><img src="./gif/0.gif"><img src="./gif/1.gif"></div>
-        <div class="carousel-column"><img src="./gif/2.gif"><img src="./gif/3.gif"></div>
-        <div class="carousel-column"><img src="./gif/4.gif"><img src="./gif/5.gif"></div>
-        <div class="carousel-column"><img src="./gif/6.gif"><img src="./gif/7.gif"></div>
-        <div class="carousel-column"><img src="./gif/8.gif"><img src="./gif/9.gif"></div>
-        <div class="carousel-column"><img src="./gif/10.gif"><img src="./gif/11.gif"></div>
-        <div class="carousel-column"><img src="./gif/12.gif"><img src="./gif/13.gif"></div>
-        <div class="carousel-column"><img src="./gif/14.gif"><img src="./gif/15.gif"></div>
+<div id="results-carousel-wrapper" style="display: inline-block; transform: scale(0.6); transform-origin: top center;">
+  <div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
+    <div class="carousel-container">
+      <div class="carousel-item is-active">
+        <div class="carousel-columns">
+          <div class="carousel-column"><img src="./gif/0.gif"><img src="./gif/1.gif"></div>
+          <div class="carousel-column"><img src="./gif/2.gif"><img src="./gif/3.gif"></div>
+          <div class="carousel-column"><img src="./gif/4.gif"><img src="./gif/5.gif"></div>
+          <div class="carousel-column"><img src="./gif/6.gif"><img src="./gif/7.gif"></div>
+          <div class="carousel-column"><img src="./gif/8.gif"><img src="./gif/9.gif"></div>
+          <div class="carousel-column"><img src="./gif/10.gif"><img src="./gif/11.gif"></div>
+          <div class="carousel-column"><img src="./gif/12.gif"><img src="./gif/13.gif"></div>
+          <div class="carousel-column"><img src="./gif/14.gif"><img src="./gif/15.gif"></div>
+        </div>
       </div>
     </div>
 
-  </div>
-
-  <div class="carousel-navigation is-centered">
-    <div class="carousel-nav-left"><i class="fas fa-chevron-left"></i></div>
-    <div class="carousel-nav-right"><i class="fas fa-chevron-right"></i></div>
+    <div class="carousel-navigation is-centered">
+      <div class="carousel-nav-left"><i class="fas fa-chevron-left"></i></div>
+      <div class="carousel-nav-right"><i class="fas fa-chevron-right"></i></div>
+    </div>
   </div>
 </div>
 
 <style>
-/* 控制整体轮播宽度 */
-#results-carousel {
-  max-width: 800px; /* 整体宽度缩小，可根据需要调整 */
-  margin: 0 auto;
-  font-size: 0; /* 去掉 inline-block 间隙 */
-}
-
-.carousel-item {
-  overflow: hidden;
-}
-.carousel-columns {
-  display: flex;
-  transition: transform 0.4s ease;
-}
-.carousel-column {
-  flex: 0 0 24%; /* 列宽保持比例 */
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-right: 1%;
-}
-.carousel-column:last-child {
-  margin-right: 0;
-}
-.carousel-column img {
-  width: 100%;      /* 图片填满列宽 */
-  height: auto;     /* 高度自适应 */
-  max-height: 80px; /* 限制图片高度，让整体更小 */
-  display: block;
-}
+.carousel-item { overflow: hidden; }
+.carousel-columns { display: flex; transition: transform 0.4s ease; }
+.carousel-column { flex: 0 0 25%; display: flex; flex-direction: column; gap: 5px; }
+.carousel-column img { width: 100%; display: block; }
 </style>
 
 <script>
@@ -248,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
 });
 </script>
+
 
 
 <!-- Paper abstract -->
