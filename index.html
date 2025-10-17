@@ -160,7 +160,6 @@
 <!-- End teaser video -->
 
   
-<!-- End teaser video -->
 <h2 class="title is-3 has-text-centered">Functional Object Grasping with HnuHand</h2>
 <section class="hero is-light is-small">
     <div class="hero-body">
@@ -187,37 +186,13 @@
 </section>
 
 <style>
-#gif-carousel {
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel-columns {
-    display: flex;
-    transition: transform 0.4s ease;
-    gap: 10px; /* 列间距 */
-}
-
-.carousel-column {
-    flex: 0 0 25%; /* 每页显示 4 列 */
-    display: flex;
-    flex-direction: column;
-    gap: 5px; /* 列内 GIF 间距 */
-}
-
-.carousel-column img {
-    width: 100%;
-    display: block;
-}
-
+#gif-carousel { overflow: hidden; position: relative; }
+.carousel-columns { display: flex; transition: transform 0.4s ease; gap: 10px; }
+.carousel-column { flex: 0 0 25%; display: flex; flex-direction: column; gap: 5px; }
+.carousel-column img { width: 100%; display: block; }
 .carousel-nav-left, .carousel-nav-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 10;
-    color: #333;
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 24px; cursor: pointer; z-index: 10; color: #333;
 }
 .carousel-nav-left { left: 0; }
 .carousel-nav-right { right: 0; }
@@ -228,14 +203,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const columnsContainer = document.querySelector('.carousel-columns');
     const columns = columnsContainer.children;
     const totalColumns = columns.length;
-    const visibleColumns = 4;
-    let index = 0;
+    let index = 0; // 当前第一个可视列
 
-    // 每列滚动距离 = 列宽 + gap
+    // 每列宽度 + gap
     const columnWidth = columns[0].offsetWidth;
     const containerStyle = getComputedStyle(columnsContainer);
     const gap = parseInt(containerStyle.gap) || 0;
     const scrollStep = columnWidth + gap;
+
+    const maxIndex = totalColumns - 1; // 最后一个可视列的 index
 
     const scrollLeft = () => {
         if(index > 0){
@@ -244,13 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     const scrollRight = () => {
-        if(index < totalColumns - visibleColumns){
+        if(index < maxIndex){
             index++;
             columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
         }
     };
 
-    // 创建左右箭头
+    // 创建左右按钮
     const navLeft = document.createElement('div');
     navLeft.className = 'carousel-nav-left';
     navLeft.innerHTML = '<i class="fas fa-chevron-left"></i>';
@@ -266,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carousel.appendChild(navRight);
 });
 </script>
+
 
 
 
