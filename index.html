@@ -160,35 +160,19 @@
 <!-- End teaser video -->
 <!-- End teaser video -->
 <div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
-  <div class='carousel-container'>
+  <div class="carousel-container">
 
-    <!-- 第一页 -->
     <div class="carousel-item is-active">
-      <div class="columns is-multiline">
-        <div class="column is-one-quarter"><img src="./gif/0.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/1.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/2.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/3.gif" style="width:100%"></div>
-
-        <div class="column is-one-quarter"><img src="./gif/4.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/5.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/6.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/7.gif" style="width:100%"></div>
-      </div>
-    </div>
-
-    <!-- 第二页 -->
-    <div class="carousel-item">
-      <div class="columns is-multiline">
-        <div class="column is-one-quarter"><img src="./gif/1.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/2.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/3.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/4.gif" style="width:100%"></div>
-
-        <div class="column is-one-quarter"><img src="./gif/5.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/6.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/7.gif" style="width:100%"></div>
-        <div class="column is-one-quarter"><img src="./gif/8.gif" style="width:100%"></div>
+      <div class="carousel-columns">
+        <!-- 每列两张 GIF -->
+        <div class="carousel-column"><img src="./gif/0.gif"><img src="./gif/1.gif"></div>
+        <div class="carousel-column"><img src="./gif/2.gif"><img src="./gif/3.gif"></div>
+        <div class="carousel-column"><img src="./gif/4.gif"><img src="./gif/5.gif"></div>
+        <div class="carousel-column"><img src="./gif/6.gif"><img src="./gif/7.gif"></div>
+        <div class="carousel-column"><img src="./gif/8.gif"><img src="./gif/9.gif"></div>
+        <div class="carousel-column"><img src="./gif/10.gif"><img src="./gif/11.gif"></div>
+        <div class="carousel-column"><img src="./gif/12.gif"><img src="./gif/13.gif"></div>
+        <div class="carousel-column"><img src="./gif/14.gif"><img src="./gif/15.gif"></div>
       </div>
     </div>
 
@@ -200,15 +184,58 @@
   </div>
 </div>
 
+<style>
+.carousel-item {
+  overflow: hidden;
+}
+.carousel-columns {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.carousel-column {
+  flex: 0 0 25%; /* 每页显示 4 列 */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.carousel-column img {
+  width: 100%;
+  display: block;
+}
+</style>
+
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    bulmaCarousel.attach('#results-carousel', {
-      slidesToScroll: 1,  // 每次滑动一页
-      slidesToShow: 1,    // 每页显示 1 个 carousel-item（即整页）
-      infinite: false,
-      autoplay: false
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  // 初始化 Bulma Carousel（主要保持样式）
+  bulmaCarousel.attach('#results-carousel', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: false,
+    autoplay: false
   });
+
+  // 自定义列滚动
+  const columnsContainer = document.querySelector('.carousel-columns');
+  const totalColumns = columnsContainer.children.length;
+  let index = 0; // 当前滚动位置
+
+  const scrollLeft = () => {
+    if(index > 0) {
+      index--;
+      columnsContainer.style.transform = `translateX(-${index * 25}%)`;
+    }
+  };
+
+  const scrollRight = () => {
+    if(index < totalColumns - 4) { // 每次显示 4 列
+      index++;
+      columnsContainer.style.transform = `translateX(-${index * 25}%)`;
+    }
+  };
+
+  document.querySelector('.carousel-nav-left').addEventListener('click', scrollLeft);
+  document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
+});
 </script>
 
 
