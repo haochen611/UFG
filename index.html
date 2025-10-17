@@ -159,102 +159,52 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<h2 class="title is-3" style="text-align: center; margin-bottom: 20px;">Seen Partition</h2>
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container" style="text-align: center;">
+<div id="results-carousel" class="carousel results-carousel">
 
-      <div id="results-carousel" class="carousel results-carousel">
+  <style>
+    /* 每个 item 宽度固定，保证一页能显示 8 个 */
+    .item {
+      width: 12%; /* 8 个 item 每页，大约 12% + margin */
+      margin: 0 0.5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        <style>
-          /* 每个 item 上下排列，缩略图 + 视频或 gif */
-          .item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 5px;
-          }
+    .item img, .item video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 5px;
+    }
+  </style>
 
-          .item img, .item video {
-            width: 100%;
-            border-radius: 10px;
-            margin-bottom: 5px;
-          }
-        </style>
+  <div class="item"><img src="./gif/0.gif"><img src="./gif/1.gif"></div>
+  <div class="item"><img src="./gif/2.gif"><img src="./gif/3.gif"></div>
+  <div class="item"><img src="./gif/4.gif"><img src="./gif/5.gif"></div>
+  <div class="item"><img src="./gif/6.gif"><img src="./gif/7.gif"></div>
+  <div class="item"><img src="./gif/8.gif"><img src="./gif/9.gif"></div>
+  <div class="item"><img src="./gif/10.gif"><img src="./gif/11.gif"></div>
+  <div class="item"><img src="./gif/12.gif"><img src="./gif/13.gif"></div>
+  <div class="item"><img src="./gif/14.gif"><img src="./gif/15.gif"></div>
+</div>
 
-        <!-- 8 个 item -->
-        <div class="item">
-          <img src="./gif/0.gif" alt="bag animation">
-          <img src="./gif/1.gif" alt="bag thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/2.gif" alt="bicycle animation">
-          <img src="./gif/3.gif" alt="bicycle thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/4.gif" alt="chair animation">
-          <img src="./gif/5.gif" alt="chair thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/6.gif" alt="mug animation">
-          <img src="./gif/7.gif" alt="mug thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/8.gif" alt="glasses animation">
-          <img src="./gif/9.gif" alt="glasses thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/10.gif" alt="dishwasher animation">
-          <img src="./gif/11.gif" alt="dishwasher thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/12.gif" alt="display animation">
-          <img src="./gif/13.gif" alt="display thumbnail">
-        </div>
-        <div class="item">
-          <img src="./gif/14.gif" alt="extra animation">
-          <img src="./gif/15.gif" alt="extra thumbnail">
-        </div>
-
-      </div>
-
-      <div style="text-align: center; margin-top: 15px;">
-        The training and test sets share the same objects and affordances.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Slick.js 初始化 -->
-<script type="text/javascript">
+<script>
   $(document).ready(function(){
     $('#results-carousel').slick({
-      slidesToShow: 8,   // 每页显示 8 个
-      slidesToScroll: 2, // 每次滚动 2 个
+      slidesToShow: 8,  // 每页显示 8 个
+      slidesToScroll: 2,
       infinite: false,
       arrows: true,
       responsive: [
-        {
-          breakpoint: 1200,
-          settings: { slidesToShow: 6 }
-        },
-        {
-          breakpoint: 992,
-          settings: { slidesToShow: 4 }
-        },
-        {
-          breakpoint: 768,
-          settings: { slidesToShow: 2 }
-        },
-        {
-          breakpoint: 480,
-          settings: { slidesToShow: 1 }
-        }
+        { breakpoint: 1200, settings: { slidesToShow: 6 } },
+        { breakpoint: 992,  settings: { slidesToShow: 4 } },
+        { breakpoint: 768,  settings: { slidesToShow: 2 } },
+        { breakpoint: 480,  settings: { slidesToShow: 1 } }
       ]
     });
   });
 </script>
-
 
 
 
