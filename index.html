@@ -201,29 +201,19 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     const columnsContainer = document.querySelector('.carousel-columns');
-    const columns = columnsContainer.children;
-    const totalColumns = columns.length;
-    let index = 0; // 当前第一个可视列
-
-    // 每列宽度 + gap
-    const columnWidth = columns[0].offsetWidth;
-    const containerStyle = getComputedStyle(columnsContainer);
-    const gap = parseInt(containerStyle.gap) || 0;
-    const scrollStep = columnWidth + gap;
-
-    const maxIndex = totalColumns - 1; // 最后一个可视列的 index
-
+    let currentX = 0; // 当前 transform 位移
+    const scrollWidth = 10; // 每次滚动的固定宽度（px）
+    
     const scrollLeft = () => {
-        if(index > 0){
-            index--;
-            columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
-        }
+        currentX = Math.max(currentX - scrollWidth, 0); // 不滚出左边
+        columnsContainer.style.transform = `translateX(-${currentX}px)`;
     };
+
     const scrollRight = () => {
-        if(index < maxIndex){
-            index++;
-            columnsContainer.style.transform = `translateX(-${index * scrollStep}px)`;
-        }
+        // 计算最大滚动距离
+        const maxScroll = columnsContainer.scrollWidth - columnsContainer.parentElement.offsetWidth;
+        currentX = Math.min(currentX + scrollWidth, maxScroll);
+        columnsContainer.style.transform = `translateX(-${currentX}px)`;
     };
 
     // 创建左右按钮
@@ -238,10 +228,10 @@ document.addEventListener('DOMContentLoaded', () => {
     navRight.addEventListener('click', scrollRight);
 
     const carousel = document.getElementById('gif-carousel');
+    carousel.style.position = 'relative';
     carousel.appendChild(navLeft);
     carousel.appendChild(navRight);
 });
-</script>
 
 
 
