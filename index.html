@@ -159,66 +159,99 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-    <br><br>
-    <h2 class="title is-3">Seen Partition</h2>
-    <section class="hero is-light is-small">
-        <div class="hero-body">
-            <div class="container">
-                <div id="results-carousel" class="carousel results-carousel">
-                    <div class="item item-bag">
-                        <video poster="" id="bag" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/bag_lift_seen.mp4"
-                                    type="video/mp4">
-                        </video>
-                        <img src="./static/images/bag_lift_seen.jpg" height="20%" />
-                    </div>
-                    <div class="item item-bicycle">
-                      <img src="./static/images/bicycle_ride_seen.jpg" height="20%" />
-                      <video poster="" id="bicycle" autoplay controls muted loop playsinline height="100%">
-                          <source src="./static/videos/bicycle_ride_seen.mp4"
-                                  type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-chair">
-                      <video poster="" id="chair" autoplay controls muted loop playsinline height="100%">
-                          <source src="./static/videos/chair_sit_seen.mp4"
-                                  type="video/mp4">
-                      </video>
-                      <img src="./static/images/chair_sit_seen.jpg" height="20%" />
-                    </div>
-                    <div class="item item-mug">
-                      <img src="./static/images/mug_grasp_seen.jpg" height="20%" />
-                      <video poster="" id="mug" autoplay controls muted loop playsinline height="100%">
-                          <source src="./static/videos/mug_grasp_seen.mp4"
-                                  type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-glasses">
-                      <video poster="" id="glasses" autoplay controls muted loop playsinline height="100%">
-                          <source src="./static/videos/glasses_wear_seen.mp4"
-                                  type="video/mp4">
-                      </video>
-                      <img src="./static/images/glasses_wear_seen.jpg" height="20%" />
-                    </div>
-                    <div class="item item-dishwasher">
-                      <img src="./static/images/dishwasher_open_seen.jpg" height="20%" />
-                      <video poster="" id="dishwasher" autoplay controls muted loop playsinline height="100%">
-                          <source src="./static/videos/dishwasher_open_seen.mp4"
-                                  type="video/mp4">
-                      </video>
-                    </div>
-                    <div class="item item-display">
-                        <video poster="" id="display" autoplay controls muted loop playsinline height="100%">
-                            <source src="./static/videos/display_display_seen.mp4"
-                                    type="video/mp4">
-                        </video>
-                        <img src="./static/images/display_display_seen.jpg" height="20%" />
-                    </div>
-                </div>
-                <div style="text-align: center;">The training and test sets share the same objects and affordances.</div>
-            </div>
+<h2 class="title is-3">Seen Partition</h2>
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <style>
+          /* carousel item 布局 */
+          .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+          }
+
+          /* GIF 大小 */
+          .item img {
+            width: 120px; /* 控制GIF宽度 */
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 5px;
+          }
+        </style>
+
+        <!-- 示例 item -->
+        <div class="item">
+          <img src="./gif/0.gif" alt="bag animation">
+          <img src="./gif/1.gif" alt="bag thumbnail">
         </div>
-    </section>
+
+        <div class="item">
+          <img src="./gif/2.gif" alt="bicycle animation">
+          <img src="./gif/3.gif" alt="bicycle thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/4.gif" alt="chair animation">
+          <img src="./gif/5.gif" alt="chair thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/6.gif" alt="mug animation">
+          <img src="./gif/7.gif" alt="mug thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/8.gif" alt="glasses animation">
+          <img src="./gif/9.gif" alt="glasses thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/10.gif" alt="dishwasher animation">
+          <img src="./gif/11.gif" alt="dishwasher thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/12.gif" alt="display animation">
+          <img src="./gif/13.gif" alt="display thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/14.gif" alt="extra animation">
+          <img src="./gif/15.gif" alt="extra thumbnail">
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 15px;">
+        The training and test sets share the same objects and affordances.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 初始化 Slick Carousel -->
+<script>
+  $(document).ready(function(){
+    $('#results-carousel').slick({
+      slidesToShow: 4,       // 每行 4 个
+      slidesToScroll: 2,     // 每次滚动 2 个
+      rows: 2,               // 每页 2 行 => 4x2 = 8 个
+      infinite: false,
+      arrows: true,
+      dots: false,
+      responsive: [
+        { breakpoint: 1200, settings: { slidesToShow: 3, slidesToScroll: 2, rows: 2 } },
+        { breakpoint: 992,  settings: { slidesToShow: 2, slidesToScroll: 1, rows: 2 } },
+        { breakpoint: 768,  settings: { slidesToShow: 1, slidesToScroll: 1, rows: 2 } }
+      ]
+    });
+  });
+</script>
+
 
 
 
