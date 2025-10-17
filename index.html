@@ -176,6 +176,9 @@
                     <div class="carousel-column"><img src="./gif/12.gif" /><img src="./gif/13.gif" /></div>
                     <div class="carousel-column"><img src="./gif/14.gif" /><img src="./gif/15.gif" /></div>
                 </div>
+                <!-- 左右按钮 -->
+                <div class="carousel-nav-left"><i class="fas fa-chevron-left"></i></div>
+                <div class="carousel-nav-right"><i class="fas fa-chevron-right"></i></div>
             </div>
 
             <div style="text-align: center; margin-top: 10px;">
@@ -193,9 +196,10 @@
 .carousel-nav-left, .carousel-nav-right {
     position: absolute; top: 50%; transform: translateY(-50%);
     font-size: 24px; cursor: pointer; z-index: 10; color: #333;
+    background: rgba(255,255,255,0.7); padding: 5px; border-radius: 50%;
 }
-.carousel-nav-left { left: 0; }
-.carousel-nav-right { right: 0; }
+.carousel-nav-left { left: 5px; }
+.carousel-nav-right { right: 5px; }
 </style>
 
 <script>
@@ -204,40 +208,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const columns = document.querySelectorAll('.carousel-column');
     const parentWidth = columnsContainer.parentElement.offsetWidth;
 
-    // 每列宽度 + gap
+    // 每列宽度 + 间距
     const columnStyle = getComputedStyle(columns[0]);
     const columnWidth = columns[0].offsetWidth;
     const gap = parseInt(columnStyle.marginRight) || 10;
-    const scrollWidth = columnWidth + gap; // 每次滚动一列
+    const scrollStep = columnWidth + gap; // 每次滚动一列
 
     let currentX = 0;
 
     const scrollLeft = () => {
-        currentX = Math.max(currentX - scrollWidth, 0);
+        currentX = Math.max(currentX - scrollStep, 0);
         columnsContainer.style.transform = `translateX(-${currentX}px)`;
     };
 
     const scrollRight = () => {
         const maxScroll = columnsContainer.scrollWidth - parentWidth;
-        currentX = Math.min(currentX + scrollWidth, maxScroll);
+        currentX = Math.min(currentX + scrollStep, maxScroll);
         columnsContainer.style.transform = `translateX(-${currentX}px)`;
     };
 
-    // 创建左右按钮
-    const navLeft = document.createElement('div');
-    navLeft.className = 'carousel-nav-left';
-    navLeft.innerHTML = '<i class="fas fa-chevron-left"></i>';
-    navLeft.addEventListener('click', scrollLeft);
-
-    const navRight = document.createElement('div');
-    navRight.className = 'carousel-nav-right';
-    navRight.innerHTML = '<i class="fas fa-chevron-right"></i>';
-    navRight.addEventListener('click', scrollRight);
-
-    const carousel = document.getElementById('gif-carousel');
-    carousel.style.position = 'relative';
-    carousel.appendChild(navLeft);
-    carousel.appendChild(navRight);
+    document.querySelector('.carousel-nav-left').addEventListener('click', scrollLeft);
+    document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
 });
 </script>
 
