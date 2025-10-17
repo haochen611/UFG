@@ -161,56 +161,82 @@
 
 <h2 class="title is-3" style="text-align: center; margin-bottom: 20px;">Seen Partition</h2>
 <section class="hero is-light is-small">
-    <div class="hero-body">
-        <div class="container" style="text-align: center;">
-            <div id="results-carousel" class="carousel results-carousel" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+  <div class="hero-body">
+    <div class="container" style="text-align: center;">
+      <div id="results-carousel" class="carousel results-carousel"
+           style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
 
-                <div class="item item-bag">
-                    <img src="./gif/0.gif" id="bag" style="width: 60%; height: auto; border-radius: 10px;" alt="bag_lift_seen animation"><br>
-                    <img src="./gif/1.gif" style="width: 20%; height: auto; border-radius: 10px; margin-top: 5px;" alt="bag_lift_seen thumbnail">
-                    <img src="./gif/2.gif" style="width: 20%; height: auto; border-radius: 10px; margin-bottom: 5px;" alt="bicycle_ride_seen thumbnail"><br>
-                    <img src="./gif/3.gif" id="bicycle" style="width: 60%; height: auto; border-radius: 10px;" alt="bicycle_ride_seen animation">
-                    <img src="./gif/2.gif" style="width: 20%; height: auto; border-radius: 10px; margin-bottom: 5px;" alt="bicycle_ride_seen thumbnail"><br>
-                    <img src="./gif/3.gif" id="bicycle" style="width: 60%; height: auto; border-radius: 10px;" alt="bicycle_ride_seen animation">
-                    <img src="./gif/2.gif" style="width: 20%; height: auto; border-radius: 10px; margin-bottom: 5px;" alt="bicycle_ride_seen thumbnail"><br>
-                     <img src="./gif/3.gif" id="bicycle" style="width: 60%; height: auto; border-radius: 10px;" alt="bicycle_ride_seen animation">
-                </div>
+        <style>
+          /* 每个 item 占四分之一宽度 */
+          .item {
+            width: 23%; /* 约 4 列，每行留间隙 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
 
-                <div class="item item-bicycle">
-                  <img src="./gif/2.gif" style="width: 20%; height: auto; border-radius: 10px; margin-bottom: 5px;" alt="bicycle_ride_seen thumbnail"><br>
-                  <img src="./gif/3.gif" id="bicycle" style="width: 60%; height: auto; border-radius: 10px;" alt="bicycle_ride_seen animation">
-                </div>
+          /* item 内图片上下排列，宽度自适应 */
+          .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+          }
 
-                <div class="item item-chair">
-                    <img src="./static/gifs/chair_sit_seen.gif" id="chair" style="width: 60%; height: auto; border-radius: 10px;" alt="chair_sit_seen animation"><br>
-                    <img src="./static/gifs/chair_sit_seen.gif" style="width: 20%; height: auto; border-radius: 10px; margin-top: 5px;" alt="chair_sit_seen thumbnail">
-                </div>
+          /* 第二张图片与第一张的间距 */
+          .item img + img {
+            margin-top: 5px;
+          }
+        </style>
 
-                <div class="item item-mug">
-                    <img src="./static/gifs/mug_grasp_seen.gif" style="width: 20%; height: auto; border-radius: 10px; margin-bottom: 5px;" alt="mug_grasp_seen thumbnail"><br>
-                    <img src="./static/gifs/mug_grasp_seen.gif" id="mug" style="width: 60%; height: auto; border-radius: 10px;" alt="mug_grasp_seen animation">
-                </div>
-
-                <div class="item item-glasses">
-                    <img src="./static/gifs/glasses_wear_seen.gif" id="glasses" style="width: 60%; height: auto; border-radius: 10px;" alt="glasses_wear_seen animation"><br>
-                    <img src="./static/gifs/glasses_wear_seen.gif" style="width: 20%; height: auto; border-radius: 10px; margin-top: 5px;" alt="glasses_wear_seen thumbnail">
-                </div>
-
-                <div class="item item-dishwasher">
-                    <img src="./static/gifs/dishwasher_open_seen.gif" style="width: 20%; height: auto; border-radius: 10px; margin-bottom: 5px;" alt="dishwasher_open_seen thumbnail"><br>
-                    <img src="./static/gifs/dishwasher_open_seen.gif" id="dishwasher" style="width: 60%; height: auto; border-radius: 10px;" alt="dishwasher_open_seen animation">
-                </div>
-
-                <div class="item item-display">
-                    <img src="./static/gifs/display_display_seen.gif" id="display" style="width: 60%; height: auto; border-radius: 10px;" alt="display_display_seen animation"><br>
-                    <img src="./static/gifs/display_display_seen.gif" style="width: 20%; height: auto; border-radius: 10px; margin-top: 5px;" alt="display_display_seen thumbnail">
-                </div>
-
-            </div>
-            <div style="text-align: center; margin-top: 15px;">The training and test sets share the same objects and affordances.</div>
+        <div class="item">
+          <img src="./gif/0.gif" alt="bag animation">
+          <img src="./gif/1.gif" alt="bag thumbnail">
         </div>
+
+        <div class="item">
+          <img src="./gif/2.gif" alt="bicycle animation">
+          <img src="./gif/3.gif" alt="bicycle thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/chair_sit_seen.gif" alt="chair animation">
+          <img src="./static/gifs/chair_sit_seen.gif" alt="chair thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/mug_grasp_seen.gif" alt="mug animation">
+          <img src="./static/gifs/mug_grasp_seen.gif" alt="mug thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/glasses_wear_seen.gif" alt="glasses animation">
+          <img src="./static/gifs/glasses_wear_seen.gif" alt="glasses thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/dishwasher_open_seen.gif" alt="dishwasher animation">
+          <img src="./static/gifs/dishwasher_open_seen.gif" alt="dishwasher thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./static/gifs/display_display_seen.gif" alt="display animation">
+          <img src="./static/gifs/display_display_seen.gif" alt="display thumbnail">
+        </div>
+
+        <div class="item">
+          <img src="./gif/extra.gif" alt="extra animation">
+          <img src="./gif/extra.gif" alt="extra thumbnail">
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 15px;">
+        The training and test sets share the same objects and affordances.
+      </div>
     </div>
+  </div>
 </section>
+
 
 
 
