@@ -193,20 +193,24 @@
   transition: transform 0.4s ease;
 }
 .carousel-column {
-  flex: 0 0 25%; /* 每页显示 4 列 */
+  flex: 0 0 24%; /* 稍微小于25%，留一点间隙 */
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px; /* 垂直间距更小 */
+  margin-right: 1%; /* 列间距 */
+}
+.carousel-column:last-child {
+  margin-right: 0;
 }
 .carousel-column img {
-  width: 50%;
+  width: 100%; /* 图片撑满列 */
   display: block;
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 初始化 Bulma Carousel（主要保持样式）
+  // 初始化 Bulma Carousel
   bulmaCarousel.attach('#results-carousel', {
     slidesToScroll: 1,
     slidesToShow: 1,
@@ -217,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 自定义列滚动
   const columnsContainer = document.querySelector('.carousel-columns');
   const totalColumns = columnsContainer.children.length;
-  let index = 0; // 当前滚动位置
+  let index = 0;
 
   const scrollLeft = () => {
     if(index > 0) {
@@ -227,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const scrollRight = () => {
-    if(index < totalColumns - 4) { // 每次显示 4 列
+    if(index < totalColumns - 4) { // 每页显示 4 列
       index++;
       columnsContainer.style.transform = `translateX(-${index * 25}%)`;
     }
@@ -237,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
 });
 </script>
+
 
 
 <!-- Paper abstract -->
