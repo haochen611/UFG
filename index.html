@@ -159,7 +159,7 @@
 </section>
 <!-- End teaser video -->
 <!-- End teaser video -->
-<div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false">
+<div id="results-carousel" class="carousel carousel-animated carousel-animate-slide" data-autoplay="false" style="max-width: 800px; margin: 0 auto;">
   <div class="carousel-container">
 
     <div class="carousel-item is-active">
@@ -185,6 +185,13 @@
 </div>
 
 <style>
+/* 控制整体轮播宽度 */
+#results-carousel {
+  max-width: 800px; /* 整体宽度缩小，可根据需要调整 */
+  margin: 0 auto;
+  font-size: 0; /* 去掉 inline-block 间隙 */
+}
+
 .carousel-item {
   overflow: hidden;
 }
@@ -193,24 +200,25 @@
   transition: transform 0.4s ease;
 }
 .carousel-column {
-  flex: 0 0 24%; /* 稍微小于25%，留一点间隙 */
+  flex: 0 0 24%; /* 列宽保持比例 */
   display: flex;
   flex-direction: column;
-  gap: 2px; /* 垂直间距更小 */
-  margin-right: 1%; /* 列间距 */
+  gap: 2px;
+  margin-right: 1%;
 }
 .carousel-column:last-child {
   margin-right: 0;
 }
 .carousel-column img {
-  width: 100%; /* 图片撑满列 */
+  width: 100%;      /* 图片填满列宽 */
+  height: auto;     /* 高度自适应 */
+  max-height: 80px; /* 限制图片高度，让整体更小 */
   display: block;
 }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // 初始化 Bulma Carousel
   bulmaCarousel.attach('#results-carousel', {
     slidesToScroll: 1,
     slidesToShow: 1,
@@ -218,7 +226,6 @@ document.addEventListener('DOMContentLoaded', () => {
     autoplay: false
   });
 
-  // 自定义列滚动
   const columnsContainer = document.querySelector('.carousel-columns');
   const totalColumns = columnsContainer.children.length;
   let index = 0;
@@ -231,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const scrollRight = () => {
-    if(index < totalColumns - 4) { // 每页显示 4 列
+    if(index < totalColumns - 4) {
       index++;
       columnsContainer.style.transform = `translateX(-${index * 25}%)`;
     }
@@ -241,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.carousel-nav-right').addEventListener('click', scrollRight);
 });
 </script>
-
 
 
 <!-- Paper abstract -->
